@@ -2,7 +2,7 @@
 
 def check(y, x):
     k = int(y / 6)
-    u = int(k / 2)
+    u = int((k+1) / 2)
 
     l = 1
     while (3*(l**2) + l <= u):
