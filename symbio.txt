@@ -1,0 +1,43 @@
+
+Redukcionistický přístup k výzkumu v biologii přinesl spoustu cenných informací a poznatků.
+Zejména v posledích desetiletích, kdy po objevu struktury DNA Watsonem a Crickem v roce 1953
+mohli biologové postavit své poznatky o jednotlivých procesech probíhajících v buňce a živých
+organismech na pevném podkladu molekulární biologie a chemie[kitano].
+Redukcionistický přístup rozbije zkoumanou látku na malé podčásti a poté zkoumá jednotlivé části zvlášť.
+Takto můžeme získat dobrý vhled do problému a jistě nepostradatelný základ pro uvažování
+o a vyvozování závěrů o biologickém systému, ale neřekne nám to, jak systém funguje.
+Systém je víc, než jen seskupení částí a i když víme vše o částech, nemusíme vědět
+vše o systému. Chybí nám totiž to, co odlišuje systém od seskupení částí a to jsou
+emergentní vlastnosti - tedy ty, které nemá žádná část systému sama o sobě, ale
+objeví se až poskládáním částí do systému.
+Systémová biologie je nový vědní obor kombinující biologii, chemii, matematiku,
+informatiku a jiné vědní disciplíny k tomu, aby poodhalila právě systémové
+chování biologických systémů. Systémová biologie má dva cíle[Cardelli]: zaprvé
+shromáždit veliké množství informací o biologických systémech pomocí high-throughput
+technologií, které jsou následně použity k sestavení modelů a k vysvětlení principů
+fungování biologických systémů, což je druhý a hlavní cíl systémové biologie.
+(predchozi_pokusy_a_schroedinger)
+
+Článek Executable cell biology od Jasmin Fisherové a Thomase A Henzigera[clanek] se zabývá
+metodami modelování biologických systémů. Autoři rozdělili modely na dva druhy -
+matematické modely a výpočetní modely.
+Matematické modely jsou klasické kvantitativní modely založené většinou na diferenciálních rovnicích.
+Popisují změnu kvantity (koncentrace látek, počet molekul, stupeň exprese genů) v čase.
+Oproti tomu výpočetní modely jsou operativní - předepisují posloupnost kroků, které
+může vykonat nějaký abstraktní stroj. Ten může být deterministický i nedeterministický
+čí stochastický. Základem takového modelu je stavový stroj
+obsahující stavy, které odpovídají stavům systému (na námi zvolené úrovni abstrakce)
+a přechodová funkce, která říká jak a za jakých podmínek může stroj změnit stav.
+Výhodou výpočetních modelů oproti matematickým je to, že je můžeme rovnou spustit
+(proto název čláku) a mohou být analyzovány za pomocí technik statické analýzy.
+U výpočetních modelů biologických systémů bývá počet stavů a stupeň nedeterminismu
+tak veliký, že matematická analýza není možná a statická analýza je jediná možnost
+jak získat informace o takovémto modelu[clanek]. Další výhodou výpočetních modelů
+je, že mohou být vytvořeny i bez znalostí všech detailů o systému. K vytvoření
+matematického modelu potřebujeme přesně znát změny vyvolané interakcí modelovaných
+struktur, a proto vytváření a analýza matematických modelů je těžká, vstupuje-li
+do hry více promenných[clanek]. Výpočetní modely jsou kvalitativní a nepotřebují
+tedy znát přesný postup fungování dané komponenty (např. reakce molekul).
+Stačí v modelu zachytit vstup a výstup reakce a abstrahovat od konkrétního mechanismu,
+kterým se reakce řídí[clanek](modle_checking).
+
