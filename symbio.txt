@@ -41,3 +41,45 @@ tedy znát přesný postup fungování dané komponenty (např. reakce molekul).
 Stačí v modelu zachytit vstup a výstup reakce a abstrahovat od konkrétního mechanismu,
 kterým se reakce řídí[clanek](modle_checking).
 
+Mezi nejpoužívanější výpočetní modely patří logické sítě, Petriho sítě, komunikující
+automaty a procesové kalkuli.
+
+Logické sítě jsou nejstarší a nejjednodušší výpočetní
+model. Každý uzel v logické síti (představující molekulu, protein, atd.) může být
+buď ve stavu 1 (aktivní) nebo ve stavu 0 (neaktivní). Mezilehlé hodnoty se zanedbávají.
+Stav systému tedy odpovídá stavu aktivací jednotlivých komponent. Hrany mezi komponentami
+mohou být buť aktivační nebo inhibiční a v dalším kroku (v příští jednotce času)
+se komponenta stane aktivní pokud aktivací je více než inhibicí. Ač jsou tyto modely
+jednoduché a hodně abstrahují od skutečného systému, byly úspěšně použity
+na analýzu stability a robustnosti genové regulace.[clanek] Jejich výhoda je jednoduchá analýza
+i velikých sítí, nevýhoda je, že se nedají skládat do komplexnějších hierarchií. Proto
+se zkoušejí různé rozšíření jako třeba kvalitativní logické sítě[clanek_zkus_najít]
+
+Petriho sítě jsou neformálně znázorňovány jako bipartitní grafy se dvěma druhy uzlů pro
+místa a přechody. Každé místo může obsahovat tzv. tokeny a přechod se stará o jejich přerozdělování.
+Petriho sítě mohou být deterministické, nedeterministické nebo stochastické a
+jejich přednost je zachycení paralelního běhu událostí - vlastnost důležitá při modelování
+biologických systémů. Používají se k modelování biochemických sítí, metabolických drah
+nebo syntézy proteinů. Mohou i modelovat logické sítě. Výhoda v přepsání logické sítě
+na Petriho síť ční v tom, že ji pak můžeme analyzovat nástroji pro analýzu Petriho sítí
+(využívajících např. statickou analýzu). Bohužel ani Petriho sítě nelze skládat
+do hierarchyckých struktur.
+
+Komunikující automaty jsou modely, které se skládají z několika navzájem se ovlivňujících
+automatů. Každý automat představuje stav jedné komponenty systému (např. molekuly, tkáně).
+Automaty mohou být seskládány dohromady, aby vytvořili jeden objekt - stav tohoto objektu
+je dán stavy všech automatů - a je tedy možné tyto modely skládat do složitějších struktur
+(proteiny, tkáně, buňky). Komunikující automaty se hodí na modelaci mechanických vlastností
+biologických systémů nebo třeba k modelování diferenciace kmenových buňek.[clanek]
+K jejich analýze může být použita technika ověřování modelu (model checking).
+
+V procesovém kalkulu můžeme na proces nahlížet jako na konečný automat, který uchovává
+stav procesu. Narozdíl od komunikujících automatů ale kladou důraz na interakci mezi
+procesy (molekulami, proteiny) a ne na stavy automatů (procesů). Tato komunikace je
+zpravidla nedeterministická, popřípadě stochastická. Stejně jako komunikkující automaty
+se procesy mohou skládat a tvořit složitější hierarchii. Používají se k modelování molekulárních
+procesů.
+
+Protože každý z uvedených modelů má své nedostatky, můžeme se setkat i s hybridnímy modely,
+které kombinují výpočetní a matematické modely. V takovém případě má systém diskrétní stavy,
+jejichž změna závisí na hodnotě spojitých proměnných popsaných diferenciálními rovnicemi.
