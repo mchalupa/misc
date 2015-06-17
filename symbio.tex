@@ -1,0 +1,120 @@
+\documentclass[a4paper]{article}
+\usepackage{cite}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[czech]{babel}
+
+
+\title {PA052: Executable Cell Biology}
+\author {Marek Chalupa}
+\date {Jaro 2015}
+
+
+\begin{document}
+
+\maketitle
+
+\par
+Redukcionistický přístup k~výzkumu v~biologii přinesl spoustu cenných informací a poznatků.
+Zejména v~posledích desetiletích, kdy po objevu struktury DNA Watsonem a Crickem v~roce 1953\cite{WatCri1953}
+mohli biologové postavit své poznatky o jednotlivých procesech probíhajících v~buňce a živých
+organismech na pevném podkladu molekulární biologie a chemie\cite{Kitano}.
+Redukcionistický přístup rozbije zkoumanou látku na malé podčásti a poté zkoumá jednotlivé části zvlášť.
+Takto můžeme získat dobrý vhled do problému a jistě nepostradatelný základ pro uvažování
+o a vyvozování závěrů o biologickém systému, ale neřekne nám to, jak systém funguje.
+Systém je víc než jen seskupení částí, a i když víme vše o částech, nemusíme vědět
+vše o systému. Chybí nám totiž to, co odlišuje systém od seskupení částí, a to jsou
+emergentní vlastnosti -- tedy ty, které nemá žádná část systému sama o sobě, ale
+objeví se až poskládáním částí do systému.
+Systémová biologie je nový vědní obor kombinující biologii, chemii, matematiku,
+informatiku a jiné vědní disciplíny k~tomu, aby odhalila právě systémové
+chování biologických systémů. Systémová biologie má dva cíle\cite{Cardelli}: zaprvé
+shromáždit veliké množství informací o biologických systémech pomocí high-throughput
+technologií, které jsou následně použity k~sestavení modelů a k~vysvětlení principů
+fungování biologických systémů, což je druhý a hlavní cíl systémové biologie.
+Není to poprvé, co se vědci snaží pochopit biologické systémy na systémové úrovni,
+ale s dnešní znalostí molekulární biologie a chemie se zdá, že by se to konečně
+mohlo podařit\cite{Kitano}.
+
+\par
+Článek Executable cell biology od Jasmin Fisherové a Thomase A Henzigera\cite{Fisher} se zabývá
+metodami modelování biologických systémů. Autoři rozdělili modely na dva druhy --
+matematické modely a výpočetní modely.
+Matematické modely jsou klasické kvantitativní modely založené většinou na diferenciálních rovnicích.
+Popisují změnu kvantity (koncentrace látek, počet molekul, stupeň exprese genů) v~čase.
+Oproti tomu výpočetní modely jsou operativní -- předepisují posloupnost kroků, které
+může vykonat nějaký abstraktní stroj\cite{Fisher}. Ten může být deterministický i nedeterministický
+či stochastický. Základem takového modelu je konečný automat, jehož stavy odpovídají stavům systému (na námi zvolené úrovni abstrakce)
+a přechodová funkce, která říká, jak a za jakých podmínek může stroj změnit stav.
+Výhodou výpočetních modelů oproti matematickým je to, že je můžeme rovnou spustit
+(proto název čláku) a mohou být analyzovány za pomocí technik statické analýzy
+(tedy bez spuštění modelu, které může být potenciálně nekonečné, pouze procházením
+konečné specifikace modelu), jako je například ověřování modelu (model checking).
+U výpočetních modelů biologických systémů bývá počet stavů a stupeň nedeterminismu
+tak veliký, že matematická analýza není možná\cite{Fisher} a simulace a statická analýza je jediná možnost
+jak získat informace o takovémto modelu. Další výhodou výpočetních modelů
+je, že mohou být vytvořeny i bez znalostí všech detailů o systému. K~vytvoření
+matematického modelu potřebujeme přesně znát změny vyvolané interakcí modelovaných
+struktur, a proto vytváření a analýza matematických modelů je těžká, vstupuje-li
+do hry více proměnných\cite{Fisher}. Výpočetní modely jsou naproti tomu kvalitativní a nepotřebují
+tedy znát přesný postup fungování dané komponenty (např. reakce molekul).
+Stačí v~modelu zachytit vstup a výstup reakce a abstrahovat od konkrétního mechanismu,
+kterým se reakce řídí\cite{Fisher}. Mezi nejpoužívanější výpočetní modely
+v~systémové biologii patří logické sítě, Petriho sítě, komunikující automaty a procesové kalkuli.
+
+\par
+Logické sítě jsou nejstarší a nejjednodušší výpočetní
+model. Každý uzel v~logické síti (představující molekulu, protein, apod.) může být
+buď ve stavu 1 (aktivní), nebo ve stavu 0 (neaktivní). Mezilehlé hodnoty se zanedbávají.
+Stav systému tedy odpovídá stavu aktivací jednotlivých komponent. Hrany mezi komponentami
+mohou být buť aktivační, nebo inhibiční a v~dalším kroku (v~příští jednotce času)
+se komponenta stane aktivní, pokud aktivací je více než inhibicí. Ač jsou tyto modely
+jednoduché a hodně abstrahují od skutečného systému, byly úspěšně použity
+k~analýze stability a robustnosti genové regulace\cite{Fisher}. Jejich výhoda je jednoduchá analýza
+i velikých sítí, nevýhoda je, že se nedají skládat do komplexnějších hierarchií. Proto
+se zkoušejí různé rozšíření jako třeba kvalitativní logické sítě\cite{Shaub}
+\par
+Petriho sítě jsou neformálně znázorňovány jako bipartitní grafy se dvěma druhy uzlů pro
+místa a přechody. Každé místo může obsahovat tzv. tokeny a přechod se stará o jejich přerozdělování.
+Přítomnost tokenu v určitém místě může například znamenat, že jsou dostupné molekuly k~průběhu reakce
+reprezentované sousedním přechodem. Petriho sítě mohou být deterministické, nedeterministické
+nebo stochastické a
+jejich přednost je zachycení paralelního běhu událostí -- vlastnost důležitá při modelování
+biologických systémů. Používají se k~modelování biochemických sítí, metabolických drah
+nebo syntézy proteinů. Mohou i modelovat logické sítě. Výhoda v~přepsání logické sítě
+na Petriho síť ční v~tom, že ji pak můžeme analyzovat nástroji pro analýzu Petriho sítí.
+Bohužel ani Petriho sítě nelze skládat do hierarchických struktur.
+\par
+Komunikující automaty jsou modely, které se skládají z několika navzájem se ovlivňujících
+konečných automatů. Každý automat představuje stav jedné komponenty systému (např. molekuly nebo tkáně).
+Automaty mohou být seskupeny dohromady, aby vytvořili jeden objekt -- stav tohoto objektu
+je dán stavy všech automatů -- a je tedy možné tyto modely skládat do složitějších struktur
+(proteiny, tkáně, buňky). Komunikující automaty se hodí na modelaci mechanických vlastností
+biologických systémů nebo třeba k~modelování diferenciace kmenových buňek\cite{Fisher}.
+\par
+Procesový kalkul modeluje množství navzájem komunikujících procesů.
+V~našem případě může být proces například molekula. Na proces lze nahlížet jako na konečný automat,
+který uchovává stav procesu (molekuly), ale narozdíl od komunikujících automatů se
+klade důraz na interakci mezi procesy (molekulami, proteiny), a ne na stavy automatů (procesů).
+Tato komunikace je zpravidla nedeterministická, popřípadě stochastická. Stejně jako komunikující automaty
+se procesy mohou skládat a tvořit složitější hierarchii. Používají se k~modelování molekulárních
+procesů, signálních drah a interakcí v~buňce\cite{Fisher}.
+\par
+Protože každý z uvedených výpočetních modelů má své nedostatky, můžeme se setkat i s hybridnímy modely,
+které kombinují výpočetní a matematické modely. Takové modely mívají zpravidla
+diskrétní stavy, jejichž změna závisí na hodnotě spojitých proměnných popsaných diferenciálními rovnicemi\cite{Fisher}.
+\par
+Výše popsané postupy se dají přímo použít k~modelování biologických systémů a jsou tedy
+základními kameny systémového přístupu k~biologii. Samotné vytváření modelu není jednoduché.
+Předchází mu rozsáhlý sběr dat a identifikace struktury systému.
+Naštěstí ve spoustě případů se motivy v~biologických systémech opakují\cite{Alon}
+a odhalování struktury a vytváření modelu pak není vždy ze zelené louky.
+
+\bibliographystyle{unsrt}
+\bibliography{symbio_cit.bib}
+
+
+\end{document}
+
+\bye
