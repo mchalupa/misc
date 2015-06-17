@@ -80,6 +80,12 @@ zpravidla nedeterministická, popřípadě stochastická. Stejně jako komunikku
 se procesy mohou skládat a tvořit složitější hierarchii. Používají se k modelování molekulárních
 procesů.
 
-Protože každý z uvedených modelů má své nedostatky, můžeme se setkat i s hybridnímy modely,
+Protože každý z uvedených výpočetních modelů má své nedostatky, můžeme se setkat i s hybridnímy modely,
 které kombinují výpočetní a matematické modely. V takovém případě má systém diskrétní stavy,
 jejichž změna závisí na hodnotě spojitých proměnných popsaných diferenciálními rovnicemi.
+
+Výše popsané postupy se dají přímo použít k modelaci biologických systémů a jsou tedy
+základními kameny systémového přístupu k biologii. Samotné vytváření modelu není jednoduché.
+Předchází mu rozsáhlý sběr dat a identifikace struktury systému.
+Naštěstí ve spoustě případů se motivy v biologických systémech opakují[simplicity]
+a odhalování struktury a vytváření modelu pak není vždy ze zelené louky.
